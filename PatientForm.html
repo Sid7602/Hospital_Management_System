@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Patient Form</title>
+		<link rel="stylesheet" href="StyleSheet1.css">
+	</head>
+    <script>
+        function val()
+        {   
+            var fn=document.patient.fname.value;
+            var letters = /^[A-Za-z]+$/;
+            var em = /^[A-Za-z0-9]+@[A-Za-z]+.[A-Za-z]+$/;
+            if(fn==null||fn=="")
+            {
+                alert("Enter Valid First Name");
+                return false;
+            }
+            else if(fn.length>30)
+            {
+                alert("First Name should be less than 20 charcters");
+                return false;
+            }
+            else if(!fn.match(letters))
+            {
+                alert("Enter only alphabets");
+                return false;
+            }
+            var ln=document.patient.lname.value;
+            if(ln==null||ln=="")
+            {
+                alert("Enter Valid Last Name");
+                return false;
+            }
+            else if(ln.length>30)
+            {
+                alert("Last Name should be less than 20 charcters");
+                return false;
+            }
+            else if(!ln.match(letters))
+            {
+                alert("Enter only alphabets");
+                return false;
+            }
+            var fsn=document.patient.fsn.value;
+            if(fsn==null||fsn=="")
+            {
+                alert("Enter Valid father/Spouse Name");
+                return false;
+            }
+            else if(fsn.length>30)
+            {
+                alert("Father/Spouse Name should be less than 20 charcters");
+                return false;
+            }
+            else if(!fsn.match(letters))
+            {
+                alert("Enter only alphabets");
+                return false;
+            }
+            var mobno=document.patient.mobno.value;
+            if(mobno.length!=10)
+            {
+                alert("Mobile Number should be 10 digits.");
+                return false;
+            }
+            var mai=document.patient.mail.value;
+            if(!mai.match(em))
+            {
+                alert("Enter valid Email ID");
+                return false;
+            }
+        }
+    </script>
+	<body>
+		<div class="left">
+			<h2 class="h2"> In an emergency, what treatment is given by ear? -Words of Comfort. </h2>
+			<p class="Rpara"> 
+				Life Education, Health Care also needs to be given importance. 
+			</p>
+			<img src="Assets\HMSImage.png" class="hmsicon">
+		</div>
+		<div class="right">
+			<h1 class="h1">Patient Registration Form</h1>
+            <form name="patient" action="WelcomePage.html" onsubmit="return val()">
+                <table align="center">
+                    <tr>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="20"></td>
+                        <td>First Name</td>
+                        <td><input type="text" name="fname" required></td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td><input type="text" name="lname" required></td>
+                    </tr>
+                    <tr>
+                        <td>Date of Birth</td>
+                        <td><input type="date" required></td>
+                    </tr>
+                    <tr>
+                        <td>Gender</td>
+                        <td>
+                            <input type="radio" name="gen" value="Male" required> Male
+                            <input type="radio" name="gen" value="Female" required> Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Father/Spouse Name</td>
+                        <td><input type="text" name="fsn"></td>
+                    </tr>
+                    <tr>
+                        <td>Blood Group</td>
+                        <td><select name="blood_group" required>
+                            <option>O-</option>
+                            <option>O+</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>Others</option>
+                        </select></td>
+                    </tr>
+                    <tr>
+                        <td>Contact No</td>
+                        <td><input type="number" name="mobno"></td>
+                    </tr>
+                    <tr>
+                        <td>Visted Earlier</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="text" name="mail" required></td>
+                    </tr>
+                    <tr> 
+                        <td align="center"><input type="reset"></td>
+                        <a href="WelcomePage.html">
+                            <td align="center"><input type="submit"></td>
+                        </a>    
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>

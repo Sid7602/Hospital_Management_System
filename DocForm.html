@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Doctor Form</title>
+		<link rel="stylesheet" href="StyleSheet1.css">
+	</head>
+	<script>
+		function validation(){
+		var letters = /^[A-Za-z]+$/;
+		var em = /^[A-Za-z0-9]+@[A-Za-z]+.[A-Za-z]+$/;
+		var fn=document.doctor.fname.value;
+		if(fn==null||fn=="")
+		{
+			alert("Enter Valid First Name");
+			return false;
+		}
+		else if(fn.length>20)
+		{
+			alert("First Name should be less than 20 charcters");
+			return false;
+		}
+		else if(!fn.match(letters))
+		{
+			alert("Enter only alphabets");
+			return false;
+		}
+		var ln=document.doctor.lname.value;
+		if(ln==null||ln=="")
+		{
+			alert("Enter Valid Last Name");
+			return false;
+		}
+		else if(ln.length>20)
+		{
+			alert("Last Name should be less than 20 charcters");
+			return false;
+		}
+		else if(!ln.match(letters))
+		{
+			alert("Enter only alphabets");
+			return false;
+		}
+		var mai=document.doctor.mail.value;
+		if(!mai.match(em))
+		{
+			alert("Enter valid Email ID");
+			return false;
+		}
+		var mobno=document.doctor.mobno.value;
+		if(mobno.length!=10)
+		{
+			alert("Mobile Number should be 10 digits.");
+			return false;
+		}
+		}
+	</script>
+	<body>
+		<div class="left">
+			<h2 class="h2"> In an emergency, what treatment is given by ear? -Words of Comfort. </h2>
+			<p class="Rpara"> 
+				Life Education, Health Care also needs to be given importance. 
+			</p>
+			<img src="Assets\HMSImage.png" class="hmsicon">
+		</div>
+		<div class="right">
+			<h1 class="h1">Doctor Registration Form</h1>
+			<form name="DocForm" method="POST" action="WelcomePage.html" onsubmit="return val()">
+				<table align="center"  cellpadding="" cellspacing="1">
+					<tr>
+						<td colspan="2"></td>
+					</tr>
+					<tr>
+						<td rowspan="20"></td>
+						<td>First Name</td>
+						<td><input type="text" name="fname" required></td>
+					</tr>
+					<tr>
+						<td>Middle Name</td>
+						<td><input type="text"></td>
+					</tr>
+					<tr>
+						<td>Last Name</td>
+						<td><input type="text" name="lname"></td>
+					</tr>
+					<tr>
+						<td>Register Num</td>
+						<td><input type="number" required></td>
+					</tr>
+					<tr>
+						<td>Date of Birth</td>
+						<td><input type="date" required></td>
+					</tr>
+					<tr>
+						<td>Gender</td>
+						<td>
+							<input type="radio" name="gen" value="Male" required> Male
+							<input type="radio" name="gen" value="Female" required> Female
+						</td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td><input type="type" name="mail" required></td>
+					</tr>
+					<tr>
+						<td>Specialisation</td>
+						<td><input type="text" required></td>
+					</tr>
+					<tr>
+						<td>Qualification</td>
+						<td><input type="text" required></td>
+					</tr>
+					<tr>
+						<td>Contact No</td>
+						<td><input type="number" name="mobno" required></td>
+					</tr>
+					<tr>
+						<td>Address</td>
+						<td><textarea cols=30 rows=5></textarea></td>
+					</tr>
+					<tr>
+						<td>Visiting Time</td>
+						<td><select name="vis_time" required>
+							<option>Morning</option>
+							<option>Afternoon</option>
+							<option>Evening</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td>Visiting Days</td>
+						<td><select name="vis_days" multiple required>
+							<option>Mon</option>
+							<option>Tue</option>
+							<option>Wed</option>
+							<option>Thurs</option>
+							<option>Fri</option>
+							<option>Sat</option>
+							<option>Sun</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td>No of patients per day</td>
+						<td><input type="number" required></td>
+					</tr>
+					<tr>
+						<td>Department No</td>
+						<td><input type="number" required></td>
+					</tr>
+					<tr> 
+						<td align="center"><input type="reset"></td>
+						<a href="WelcomePage.html">
+							<td align="center"><input type="submit"></td>
+						</a>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

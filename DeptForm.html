@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Department Form</title>
+		<link rel="stylesheet" href="StyleSheet1.css">
+	</head>
+    <script>
+        function val()
+        {
+            var letters = /^[A-Za-z]+$/;
+            var decno = /^[0-9]+.[0-9][0-9]$/;
+            var dn=document.dept.dname.value;
+            if(dn==null||dn=="")
+            {
+                alert("Enter Valid Department Name");
+                return false;
+            }
+            else if(dn.length>30)
+            {
+                alert("Department Name should be less than 20 charcters");
+                return false;
+            }
+            else if(!dn.match(letters))
+            {
+                alert("Enter only alphabets");
+                return false;
+            }
+            var desc=document.dept.desc.value;
+            if(desc.length>50)
+            {
+                alert("Description should be less than 50 charcters");
+                return false;
+            }
+            var cogr=document.dept.cogr.value;
+            var coac=document.dept.coac.value;
+            var conac=document.dept.conac.value;
+            var coicu=document.dept.coicu.value;
+            if(!cogr.match(decno))
+            {
+                alert("Enter valid Cost of general room ");
+                return false;
+            }
+            if(!coac.match(decno))
+            {
+                alert("Enter valid Cost of AC room ");
+                return false;
+            }
+            if(!conac.match(decno))
+            {
+                alert("Enter valid Cost of Non AC room ");
+                return false;
+            }
+            if(!coicu.match(decno))
+            {
+                alert("Enter valid Cost of each ICU ");
+                return false;
+            }
+        }
+    </script>
+	<body>
+		<div class="left">
+			<h2 class="h2"> In an emergency, what treatment is given by ear? -Words of Comfort. </h2>
+			<p class="Rpara"> 
+				Life Education, Health Care also needs to be given importance. 
+			</p>
+			<img src="Assets\HMSImage.png" class="hmsicon">
+		</div>
+		<div class="right">
+			<h1 class="h1">Department Registration Form</h1>
+            <form name="DeptForm" method="POST" action="WelcomePage.html" onsubmit="return val()">
+                <table align="center"  cellpadding="2" cellspacing="2">
+                    <tr>
+                        <td colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="20"></td>
+                        <td>Department Name</td>
+                        <td><input type="text" name="dname" required></td>
+                    </tr>
+                    <tr>
+                        <td>Department Description</td>
+                        <td><textarea name="desc" cols=30 rows=5 required></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>No. of Doctors</td>
+                        <td><input type="number" required></td>
+                    </tr>
+                    <tr>
+                        <td>No of general rooms</td>
+                        <td><input type="number" required></td>
+                    </tr>
+                    <tr>
+                        <td>No of AC rooms</td>
+                        <td><input type="number" required></td>
+                    </tr>
+                    <tr>
+                        <td>No of Non AC rooms</td>
+                        <td><input type="number" required></td>
+                    </tr>
+                    <tr>
+                        <td>No of ICU </td>
+                        <td><input type="number" required></td>
+                    </tr>
+                    <tr>
+                        <td>Cost of general room</td>
+                        <td><input type="text" name="cogr" required></td>
+                    </tr>
+                    <tr>
+                        <td>Cost of AC room</td>
+                        <td><input type="text" name="coac" required></td>
+                    </tr>
+                    <tr>
+                        <td>Cost of Non AC room</td>
+                        <td><input type="text" name="conac" required></td>
+                    </tr>
+                    <tr>
+                        <td>Cost of each ICU</td>
+                        <td><input type="text" name="coicu" required></td>
+                    </tr>
+                    <br><br>
+                    <tr> 
+                        <td align="center"><input type="reset"></td>
+                            <a href="WelcomePage.html">
+                                <td align="center"><input type="submit"></td>
+                            </a>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
